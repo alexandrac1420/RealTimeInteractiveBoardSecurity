@@ -58,7 +58,7 @@ You need to install the following tools and configure their dependencies:
 
 1. Clone the repository and navigate into the project directory:
     ```sh
-    git clone https://github.com/alexandrac1420/RealTimeInteractiveBoard.git
+    git clone https://github.com/alexandrac1420/RealTimeInteractiveBoardSecurity.git
 
     cd BoardWebSocketSecurity
     ```
@@ -109,7 +109,8 @@ This application uses Spring Security to provide user authentication and HTTPS f
 
 ## Architectural Design
 
-![alt text](Pictures/image-3.png)
+![Imagen de WhatsApp 2024-07-11 a las 20 18 05_50c8c66f](https://github.com/user-attachments/assets/cbfdef72-03db-416c-bf14-25109f2303f4)
+
 
 ### BBCanvas Component (React)
 
@@ -224,7 +225,7 @@ Follow these steps to deploy the application on AWS:
 
 ## Versioning
 
-I use [GitHub](https://github.com/) for versioning. For the versions available, see the [tags on this repository](https://github.com/alexandrac1420/MultiUserBoard).
+I use [GitHub](https://github.com/) for versioning. For the versions available, see the [tags on this repository](https://github.com/alexandrac1420/RealTimeInteractiveBoardSecurity.git).
 
 ## Authors
 
