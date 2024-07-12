@@ -1,7 +1,8 @@
-# Interactive Drawing Board with Real-Time WebSocket Communication
+# Secure Interactive Drawing Board with Real-Time WebSocket Communication
 
-An interactive drawing board developed with React and Spring Boot that allows multiple users to draw on a shared board in real-time using WebSockets.
-![Demo GIF](https://github.com/alexandrac1420/MultiUserBoard/blob/master/Dise%C3%B1o%20sin%20t%C3%ADtulo.gif)
+An interactive drawing board developed with React and Spring Boot that allows multiple users to draw on a shared board in real-time using WebSockets. The application is secured with user login authentication and HTTPS communication.
+
+![Demo GIF](https://github.com/alexandrac1420/RealTimeInteractiveBoardSecurity/blob/master/Pictures/Dise%C3%B1o%20sin%20t%C3%ADtulo.gif)
 
 ## Getting Started
 
@@ -59,19 +60,18 @@ You need to install the following tools and configure their dependencies:
     ```sh
     git clone https://github.com/alexandrac1420/RealTimeInteractiveBoard.git
 
-    cd BoardWebSocket
+    cd BoardWebSocketSecurity
     ```
 
 2. Build the Spring Boot backend:
     ```sh
-    cd demo
     mvn package
     ```
 
     Should display output similar to:
     ```sh
     [INFO] Building jar: C:\Users\alexandra.cortes\Downloads\BoardWebSocket\target\BoardWebSocket-0.0.1-SNAPSHOT.jar       
-    [INFO] The original artifact has been renamed to C:\Users\alexandra.cortes\Downloads\BoardWebSocket\target\BoardWebSocket-0.0.1-SNAPSHOT.jar.original
+    [INFO] The original artifact has been renamed to C:\Users\alexandra.cortes\Downloads\BoardWebSocket\target\\BoardWebSocket-0.0.1-SNAPSHOT.jar.original
     [INFO] BUILD SUCCESS
     ```
 
@@ -85,9 +85,27 @@ To run the backend and frontend, follow these steps:
     mvn spring-boot:run
     ```
 
-    The backend will start on `http://localhost:8080`, and it will store the drawing board's data (i.e., the points that are drawn).
+    The backend will start on `https://localhost:8443`, and it will store the drawing board's data (i.e., the points that are drawn).
+
+2. **Access the frontend:**
+    Open your browser and navigate to `https://localhost:8443`. You will be prompted to log in using the configured user credentials (e.g., `user1/password1`).
+   ![image](https://github.com/user-attachments/assets/ca636a01-db11-4c9c-96f0-977fd6251fc0)
+   ![image](https://github.com/user-attachments/assets/b872f2ac-094e-4f3c-8877-007380d868ca)
+   ![image](https://github.com/user-attachments/assets/a31a9bf4-377e-453d-a4d4-60f1e922f948)
 
 
+
+
+## Security
+
+This application uses Spring Security to provide user authentication and HTTPS for secure communication:
+
+- **User Authentication:**
+  - Configured to require login for accessing the drawing board.
+  - Sample users (`user1` and `user2`) are predefined with passwords (`password1` and `password2` respectively).
+
+- **HTTPS:**
+  - The application runs on port 8443 using HTTPS to ensure secure communication between the client and server.
 
 ## Architectural Design
 
@@ -147,7 +165,14 @@ DrawingServiceController is a REST controller handling incoming HTTP requests:
 **Features:**
 - Provides REST endpoints for the client to obtain information about the server's status and other operations unrelated to drawing on the interactive board.
 
+### WebSecurityConfig (@Configuration)
 
+WebSecurityConfig provides security configurations for the application:
+
+**Features:**
+- Configures HTTP security to require authentication for all endpoints except the login page.
+- Defines in-memory user details for authentication.
+- Configures HTTPS on port 8443 for secure communication.
 
 ## Deployment on AWS
 
@@ -180,8 +205,13 @@ Follow these steps to deploy the application on AWS:
 
 5. Verify the deployment
 
-    Check the application's availability using the public DNS of the EC2 instance on port 8080, e.g.,
-    ![alt text](image.png)
+    Check the application's availability using the public DNS of the EC2 instance on port 8443, e.g.,
+   ![image](https://github.com/user-attachments/assets/317e2669-b024-4cd8-9ebc-58a37756a68e)
+   ![image](https://github.com/user-attachments/assets/83a39d9b-fd43-425f-8d67-74622977442d)
+   ![image](https://github.com/user-attachments/assets/ea36b151-06ce-4ff4-a84d-5abc3af907e8)
+   ![image](https://github.com/user-attachments/assets/892902f1-f831-4225-9110-40646780cf1d)
+
+
 
 
 
